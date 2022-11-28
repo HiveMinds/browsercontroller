@@ -11,31 +11,28 @@ from browsercontroller.helper import get_browser_drivers, open_url
 
 # pylint: disable=R0903
 # pylint: disable=R0913
-class Browsercontroller:
-    """Gets the GitLab runner from the GitLab server."""
+def get_ubuntu_apt_firefox_controller(
+    url: str,
+    default_profile: bool = True,
+) -> str:
+    """Initialises object that gets the browser controller, then it gets the
+    issues from the source repo, and copies them to the target repo."""
 
-    def __init__(
-        self,
-        url: str,
-        default_profile: bool = True,
-    ) -> None:
-        """Initialises object that gets the browser controller, then it gets
-        the issues from the source repo, and copies them to the target repo."""
+    # Store the hardcoded values used within this project
+    hardcoded = Hardcoded()
 
-        # Store the hardcoded values used within this project
-        self.hardcoded = Hardcoded()
+    # get browser drivers
+    get_browser_drivers(hardcoded)
+    driver = initialise_website_controller(default_profile)
+    time.sleep(1)
 
-        # get browser drivers
-        get_browser_drivers(self.hardcoded)
-        driver = initialise_website_controller(default_profile)
-        time.sleep(1)
-
-        # Go to extension settings.
-        driver = open_url(
-            driver,
-            url,
-        )
-        time.sleep(1)
+    # Go to extension settings.
+    driver = open_url(
+        driver,
+        url,
+    )
+    time.sleep(1)
+    return driver
 
 
 # pylint: disable=R0903

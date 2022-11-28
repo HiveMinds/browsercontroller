@@ -22,8 +22,11 @@ pip install browsercontroller
 Then run:
 
 ```py
-from browsercontroller.Browsercontroller import Browsercontroller
-Browsercontroller(url="startpage.nl",default_profile=True)
+from browsercontroller.get_controller import (
+    get_ubuntu_apt_firefox_controller,
+)
+
+get_ubuntu_apt_firefox_controller("https://www.startpagina.nl")
 ```
 
 **Warning:**

@@ -1,5 +1,5 @@
 """Entry point for the project."""
 
-from browsercontroller.Browsercontroller import Browsercontroller
+from browsercontroller.get_controller import get_ubuntu_apt_firefox_controller
 
-Browsercontroller("https://www.startpagina.nl")
+get_ubuntu_apt_firefox_controller("https://www.startpagina.nl")
