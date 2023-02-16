@@ -39,7 +39,9 @@ logins and bookmarks if you don't have an `apt` version of Firefox.
 Build the pip package with:
 
 ```
-python3 setup.py sdist bdist_wheel
+pip install --upgrade pip setuptools wheel
+pip install "keyring>=23.11"
+pip install twine
 ```
 
 Install the pip package locally with:
@@ -51,5 +53,8 @@ pip install -e .
 Upload the pip package to the world with:
 
 ```
+rm -r dist
+rm -r build
+python3 setup.py sdist bdist_wheel
 python -m twine upload dist/\*
 ```
