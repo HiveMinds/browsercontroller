@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-def wait_until_page_is_loaded(time_limit_sec: int, driver: Any) -> None:
+def wait_until_page_is_loaded(*, time_limit_sec: int, driver: Any) -> None:
     """Waits until page is loaded for some time frame."""
     delay = time_limit_sec  # seconds
     try:

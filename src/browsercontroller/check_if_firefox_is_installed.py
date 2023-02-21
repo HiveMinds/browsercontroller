@@ -3,7 +3,7 @@ import subprocess  # nosec
 from typing import List
 
 
-def run_bashardcodedommand(bashCommand: str) -> List[bytes]:
+def run_bashardcodedommand(*,bashCommand: str) -> List[bytes]:
     """Runs a bash command.
 
     :param bashCommand: A string containing a bash command that can be

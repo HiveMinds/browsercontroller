@@ -35,7 +35,7 @@ class Hardcoded:
         self.chromium_driver_unmodified_filename = "chromedriver"
         self.chromium_driver_filename = "chromedriver90"
 
-        self.firefox_profile = get_default_profile_dir()
+        
 
 
 def get_default_profile_dir() -> str:

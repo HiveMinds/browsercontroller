@@ -5,13 +5,14 @@ from typing import Any
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
-from browsercontroller.Hardcoded import Hardcoded
+from browsercontroller.Hardcoded import Hardcoded, get_default_profile_dir
 from browsercontroller.helper import get_browser_drivers, open_url
 
 
 # pylint: disable=R0903
 # pylint: disable=R0913
 def get_ubuntu_apt_firefox_controller(
+    *,
     url: str,
     default_profile: bool = True,
 ) -> str:
@@ -23,7 +24,7 @@ def get_ubuntu_apt_firefox_controller(
 
     # get browser drivers
     get_browser_drivers(hardcoded)
-    driver = initialise_website_controller(default_profile)
+    driver = initialise_website_controller(default_profile=default_profile)
     time.sleep(1)
 
     # Go to extension settings.
@@ -35,8 +36,8 @@ def get_ubuntu_apt_firefox_controller(
     return driver
 
 
-# pylint: disable=R0903
-def initialise_website_controller(default_profile: bool) -> Any:
+# *,pylint: disable=R0903
+def initialise_website_controller(*,default_profile: bool) -> Any:
     """Constructs object that controls a firefox browser.
 
     TODO: Allow user to switch between running browser
@@ -50,7 +51,7 @@ def initialise_website_controller(default_profile: bool) -> Any:
 
         if default_profile:
             options.add_argument("-profile")
-            options.add_argument(hardcoded.firefox_profile)
+            options.add_argument(get_default_profile_dir())
         else:
             options.add_argument("-private")
 

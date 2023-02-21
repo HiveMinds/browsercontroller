@@ -2,4 +2,9 @@
 
 from browsercontroller.get_controller import get_ubuntu_apt_firefox_controller
 
-get_ubuntu_apt_firefox_controller("https://www.startpagina.nl")
+# TODO: Check if apt version of firefox is installed, if not, ensure it is.
+# run_bashardcodedommand()
+
+get_ubuntu_apt_firefox_controller(
+    url="https://www.startpagina.nl",
+    default_profile=False)
