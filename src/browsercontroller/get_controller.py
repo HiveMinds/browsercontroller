@@ -33,6 +33,12 @@ def get_ubuntu_apt_firefox_controller(
         url,
     )
     time.sleep(1)
+    # Load again to allow the history to be dropped.
+    driver = open_url(
+        driver,
+        url,
+    )
+    time.sleep(1)
     return driver
 
 

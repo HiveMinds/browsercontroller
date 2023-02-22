@@ -14,5 +14,5 @@ ensure_apt_firefox_command: str = (
 run_bashardcodedommand(bashCommand=ensure_apt_firefox_command)
 
 get_ubuntu_apt_firefox_controller(
-    url="https://www.startpagina.nl", default_profile=False
+    url="https://www.github.com", default_profile=False
 )
