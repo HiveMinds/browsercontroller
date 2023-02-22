@@ -40,7 +40,6 @@ Build the pip package with:
 
 ```
 pip install --upgrade pip setuptools wheel
-pip install "keyring>=23.11"
 pip install twine
 ```
 
