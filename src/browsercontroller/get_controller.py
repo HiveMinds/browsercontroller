@@ -1,6 +1,6 @@
 """Gets a website controller and opens it."""
 import time
-from typing import Any
+from typing import Any, Optional
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -37,7 +37,9 @@ def get_ubuntu_apt_firefox_controller(
 
 
 # *,pylint: disable=R0903
-def initialise_website_controller(*, default_profile: bool) -> Any:
+def initialise_website_controller(
+    *, default_profile: bool, clear_cookies: Optional[bool] = True
+) -> Any:
     """Constructs object that controls a firefox browser.
 
     TODO: Allow user to switch between running browser
@@ -63,6 +65,10 @@ def initialise_website_controller(*, default_profile: bool) -> Any:
             options=options,
             executable_path=r"firefox_driver/geckodriver",
         )
+
+        # clear cookies
+        if clear_cookies:
+            driver.delete_all_cookies()
 
         return driver
     # pylint: disable=W0707
