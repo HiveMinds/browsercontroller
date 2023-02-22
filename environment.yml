@@ -5,6 +5,9 @@
 # First run: conda env create --file environment.yml
 # If you change this file, run: conda env update --file environment.yml
 
+# For this browsercontroller environment specific:
+# sudo apt install ruby-rubygems -y
+
 # Conda configuration settings. (Specify which modules/packages are installed.)
 name: browsercontroller
 channels:

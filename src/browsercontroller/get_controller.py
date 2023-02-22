@@ -37,13 +37,13 @@ def get_ubuntu_apt_firefox_controller(
 
 
 # *,pylint: disable=R0903
-def initialise_website_controller(*,default_profile: bool) -> Any:
+def initialise_website_controller(*, default_profile: bool) -> Any:
     """Constructs object that controls a firefox browser.
 
     TODO: Allow user to switch between running browser
     in background or foreground.
     """
-    hardcoded = Hardcoded()
+    Hardcoded()
     # To run Firefox browser in foreground
     print("Loading geckodriver")
     try:
@@ -68,7 +68,7 @@ def initialise_website_controller(*,default_profile: bool) -> Any:
     # pylint: disable=W0707
     except ValueError:
         # pylint: disable=W0707
-        raise Exception(
+        raise ValueError(
             "Error, you have the snap Firefox browser installed. Please"
             " use the apt one instead. This switching is automated"
             + " in a bash script of the Self-host GitLab."

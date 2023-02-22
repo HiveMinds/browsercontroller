@@ -35,8 +35,6 @@ class Hardcoded:
         self.chromium_driver_unmodified_filename = "chromedriver"
         self.chromium_driver_filename = "chromedriver90"
 
-        
-
 
 def get_default_profile_dir() -> str:
     """Finds the default Firefox profile path and returns it."""
@@ -53,7 +51,7 @@ def get_default_profile_dir() -> str:
             if ".default-release" in subdir:
                 default_profile.append(subdir)
         if len(default_profile) > 1 or len(default_profile) < 0:
-            raise Exception(
+            raise LookupError(
                 f"Error, default profile not found:{default_profile}"
             )
     return default_profile[0]
