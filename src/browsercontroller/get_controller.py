@@ -5,7 +5,7 @@ import time
 from typing import Any, Optional
 
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as BraveService
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from typeguard import typechecked
 from webdriver_manager.chrome import ChromeDriverManager
@@ -92,6 +92,7 @@ def initialise_website_controller(
     # To run Firefox browser in foreground
     print("Loading geckodriver")
     path_to_chromedriver: str = f"{os.getcwd()}/chrome_driver/chromedriver114"
+    print(f"path_to_chromedriver={path_to_chromedriver}")
 
     if browser_name == "firefox":
         # path_to_geckodriver:str = f"{os.getcwd()}/firefox_driver/geckodriver"
@@ -121,15 +122,18 @@ def initialise_website_controller(
             )
 
     if browser_name == "chrome":
+        # Requires snap install chromium.
         binary_location = {
-            OSType.LINUX: path_to_chromedriver,
+            # OSType.LINUX: path_to_chromedriver,
+            OSType.LINUX: (
+                "/snap/chromium/2623/usr/lib/chromium-browser/chrome"
+            ),
         }[os_name()]
         option = webdriver.ChromeOptions()
         option.binary_location = binary_location
 
         driver = webdriver.Chrome(
-            options=option,
-            service=ChromeDriverManager(ChromeDriverManager().install()),
+            service=ChromeService(ChromeDriverManager().install())
         )
     elif browser_name == "brave":
         binary_location = {
@@ -140,7 +144,7 @@ def initialise_website_controller(
         option.binary_location = binary_location
         driver = webdriver.Chrome(
             options=option,
-            service=BraveService(
+            service=ChromeService(
                 ChromeDriverManager(chrome_type=ChromeType.BRAVE).install()
             ),
         )
