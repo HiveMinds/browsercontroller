@@ -23,17 +23,21 @@ class Hardcoded:
         self.firefox_driver_filename = "geckodriver"
         self.firefox_driver_link = (
             "https://github.com/mozilla/geckodriver/"
-            + "releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz"
+            # + "releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz"
+            + "releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz"
         )
 
         self.chromium_driver_folder = "chrome_driver"
         self.chromium_driver_tarname = "chrome_driver.zip"
         self.chromium_driver_link = (
-            "https://chromedriver.storage.googleapis."
-            + "com/90.0.4430.24/chromedriver_linux64.zip"
+            # "https://chromedriver.storage.googleapis."
+            # + "com/90.0.4430.24/chromedriver_linux64.zip"
+            "https://chromedriver.storage.googleapis.com/"
+            + "114.0.5735.90/chromedriver_linux64.zip"
         )
+
         self.chromium_driver_unmodified_filename = "chromedriver"
-        self.chromium_driver_filename = "chromedriver90"
+        self.chromium_driver_filename = "chromedriver114"
 
 
 def get_default_profile_dir() -> str:
