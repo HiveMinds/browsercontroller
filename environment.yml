@@ -72,3 +72,5 @@ dependencies:
     - vulture
     # Allow for auto generation of type-hints during runtime.
     - pyannotate
+    # Allow controlling the browser with playwright.
+    - playwright

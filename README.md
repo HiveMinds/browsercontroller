@@ -29,6 +29,45 @@ from browsercontroller.get_controller import (
 get_ubuntu_apt_firefox_controller(url="https://www.startpagina.nl")
 ```
 
+## Hide automation/"are u human?"
+
+Some entities use checks to verify you are human. at 20223-09-19 those can be
+evaded using either:
+
+- playwright
+- puppeteer
+
+## Installation playwright
+
+```sh
+pip install playwright
+playwright install
+```
+
+## Installation puppeteer
+
+```sh
+npm install puppeteer
+npm install puppeteer-extra-plugin-stealth
+npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+# Then run the example script with:
+node puppeteer_stealth.js
+```
+
+## Drawback playwright implementation
+
+An example of each of those two options is included. One drawback of the way
+playwright is used in this repository, is that the entire sequence of actions
+must occur within a single method, because the playwright browsercontroller is
+created within a Python `with` statement, and returning the `Page` object from
+the initialisation function: `initialise_playwright_browsercontroller()` yields
+"loop closed error."
+
+## Drawback puppeteer
+
+It is implemented in javascript. Pypeteer is an archived Python approximation
+of puppeteer. However, that is limited in its functionalities and not supported anymore.
+
 **Warning:**
 Checks whether a `snap` version of Firefox is installed, and if yes, removes it
 and installs an `apt` version of Firefox instead. You'll lose browser history,

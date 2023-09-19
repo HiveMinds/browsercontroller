@@ -112,14 +112,19 @@ def initialise_website_controller(
         else:
             option.add_argument("-private")
 
-            # First trying to launch Firefox without installing it,
-            # to evade rate-limits from driver download. If it does not work
-            # Uncomment the install and run it manually, once.
-            driver = webdriver.Firefox(
-                options=option,
-                service=FirefoxService(),
-                # service=FirefoxService(GeckoDriverManager().install()),
-            )
+        # First trying to launch Firefox without installing it,
+        # to evade rate-limits from driver download. If it does not work
+        # Uncomment the install and run it manually, once.
+        driver = webdriver.Firefox(
+            options=option,
+            service=FirefoxService(),
+            # service=FirefoxService(GeckoDriverManager().install()),
+        )
+        # Remove navigator.webdriver Flag using JavaScript
+        driver.execute_script(
+            "Object.defineProperty(navigator,"
+            + " 'webdriver', {get: () => undefined})"
+        )
 
     if browser_name == "chrome":
         # Requires snap install chromium.
@@ -131,6 +136,7 @@ def initialise_website_controller(
         }[os_name()]
         option = webdriver.ChromeOptions()
         option.binary_location = binary_location
+        option.add_argument("--disable-blink-features=AutomationControlled")
 
         driver = webdriver.Chrome(
             service=ChromeService(ChromeDriverManager().install())
