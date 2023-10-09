@@ -3,7 +3,7 @@
 import time
 from typing import Any
 
-from browsercontroller.helper import open_url
+from browsercontroller.selenium.helper import open_url
 
 
 def get_firefox_profile(driver: Any) -> str:

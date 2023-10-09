@@ -11,8 +11,8 @@ from typeguard import typechecked
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 
-from browsercontroller.Hardcoded import Hardcoded, get_default_profile_dir
-from browsercontroller.helper import get_browser_drivers, open_url
+from browsercontroller.Hardcoded import Hardcoded, get_default_profiledir
+from browsercontroller.selenium.helper import get_browser_drivers, open_url
 
 
 # pylint: disable=R0903
@@ -108,7 +108,7 @@ def initialise_website_controller(
 
         if default_profile:
             option.add_argument("-profile")
-            option.add_argument(get_default_profile_dir())
+            option.add_argument(get_default_profiledir())
         else:
             option.add_argument("-private")
 

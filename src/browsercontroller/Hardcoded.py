@@ -40,7 +40,7 @@ class Hardcoded:
         self.chromium_driver_filename = "chromedriver114"
 
 
-def get_default_profile_dir() -> str:
+def get_default_profiledir() -> str:
     """Finds the default Firefox profile path and returns it."""
 
     ubuntu_username = getpass.getuser()

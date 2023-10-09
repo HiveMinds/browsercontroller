@@ -93,7 +93,7 @@ def get_chromium_browser_driver(hardcoded: Hardcoded) -> None:
     this program.
 
     """
-    # mak dir
+    # make dir
     os.system(f"mkdir {hardcoded.chromium_driver_folder}")  # nosec
     # get the zip
     curl_chromium_drive = (
