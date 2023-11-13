@@ -73,14 +73,14 @@ def get_firefox_browser_driver(hardcoded: Hardcoded) -> None:
         + f"{hardcoded.firefox_driver_tarname} -C "
         + f"{hardcoded.firefox_driver_folder}/"
     )
-    print(f"unpacking with:{unpack_firefox_driver}")
+    print(f"unpacking with: {unpack_firefox_driver}")
     os.system(unpack_firefox_driver)  # nosec
 
 
 def install_firefox_browser() -> None:
     """USED."""
     install_firefox_browser_command = "yes | sudo apt install firefox"
-    print(f"install_firefox_browser:{install_firefox_browser_command}")
+    print(f"install_firefox_browser: {install_firefox_browser_command}")
     os.system(install_firefox_browser_command)  # nosec
 
 

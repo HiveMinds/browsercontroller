@@ -56,6 +56,6 @@ def get_default_profiledir() -> str:
                 default_profile.append(subdir)
         if len(default_profile) > 1 or len(default_profile) < 0:
             raise LookupError(
-                f"Error, default profile not found:{default_profile}"
+                f"Error, default profile not found: {default_profile}"
             )
     return default_profile[0]
